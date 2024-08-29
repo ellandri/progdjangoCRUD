@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block lienCss %}
+<!-- custom css file link -->
+<link rel="stylesheet" href="{% static 'css_student/lstyle.css' %}">
+{% endblock %}
+{% block title %}
+
+<title>Bienvenue</title>
+
+{% endblock title %}
+
+       
+{% block body %}
+<!-- A propos des articles ... section starts -->
+	
+
+<section>
+
+   
+    <div class="table_responsive">
+
+        <h1 class="heading">Les <span>élèves</span> </h1>
+		<p> <a href="{%url 'student:add' %}">Ajouter eleves <i class="fas fa-add"></i></a></p>
+        <table>
+        
+    
+    <table align='center' border='2' width='50%'>
+          <thead>
+        <tr>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Genre</th>
+        <th>Classe</th>
+        <th>Matricule</th>
+        <th>Age</th>
+        <th>Telephone</th>
+        <th>Ville</th>
+        <th>Actions</th>
+         </thead>
+        </tr>
+        
+       
+           <tr>
+            {% for student in students %}
+            <td>{{student.first_name}}</td> 
+            <td>{{student.last_name}}</td> 
+            <td>{{student.gender}}</td>
+            <td>{{student.Class}}</td> 
+            <td>{{student.Registration}}</td> 
+            <td>{{student.Age}}</td> 
+            <td>{{student.Number}}</td>
+            <td>{{student.City}}</td>  
+            
+            
+            <td>
+             <span class='action_btn'>
+                <a href="{% url 'student:delete' student.id %}" style='text-decoration: none' onclick="confirmDelete(event, this)">Supprimer</a>
+            
+            
+            <a href="{%url 'student:edit' student.id %}" style='text-decoration: none'>Modifier</a>
+            </span>
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+            
+            
+    
+        
+        
+    
+      </tbody>
+       
+      </div>
+            
+         
+
+
+</section>
+
+</div>
+<script>
+    function confirmDelete(event, element) {
+    event.preventDefault();  // Empêche la redirection immédiate
+
+    Swal.fire({
+        title: 'Êtes-vous sûr ?',
+        text: "Vous ne pourrez pas annuler cette action !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui, supprimez-le !'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire(
+                'Supprimé !',
+                'Votre fichier a été supprimé.',
+                'success'
+            ).then(() => {
+                window.location.href = element.href;  // Redirige vers l'URL de suppression
+            });
+        }
+    });
+}
+</script>
+<!--<script src={% static 'code.js' %}></script>-->
+	
+{% endblock body %}
+

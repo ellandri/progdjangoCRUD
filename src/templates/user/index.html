@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{%load static%}
+
+            
+{% block lienCss %}
+    <link rel="stylesheet" href="{% static 'css_user/ustyle.css' %}">
+    {% endblock %}							
+
+    {% block body %}
+	
+
+<section>
+
+   
+    <div class="table_responsive">
+
+        <h1 class="heading">Les <span>Utilisateurs</span> </h1>
+		<p> <a href="{% url 'user:add' %}">Ajouter utilisateur <i class="fas fa-add"></i></a></p>
+        <table>
+        
+    
+    <table align='center' border='2' width='50%'>
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+                <th>Mot de passe</th>
+                <th>Actions</th>
+        
+            </tr>
+        </thead>
+                
+        <tr>
+                {% for user in users %}
+                
+                <td>{{ user.username }}</td>
+                <td>{{ user.password }}</td>
+            
+            
+                
+            
+            <td><span class='action_btn'>
+            
+            <a href="{% url 'user:edit' user.id  %}" style='text-decoration: none'>Modifier</a>
+            </span>
+            </td>
+            
+        </tr>
+            {% endfor %}
+    </table>
+            
+            
+    
+        
+        
+    
+      </tbody>
+       
+      </div>
+            
+         
+
+
+</section>
+
+	<script src="code.js"></script>
+	
+    {% endblock body %}
+	
+	
+	
+
+

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{%load static%}
+
+	
+{% block lienCss %}
+    <link rel="stylesheet" href="{%static 'css_report/report.css'%}">
+    {% endblock %}						
+
+
+    {% block body %}
+
+<section class="oui">
+
+
+    <div class="container">
+        <h1>Rapport</h1>
+        <div class="form-container">
+            <div class="left-section">
+                <label for="select-option">Sélectionner une option:</label>
+                <select id="select-option">
+                    <option value="eleves">Liste des élèves</option>
+                    <option value="professeurs">Liste des professeurs</option>
+                    <option value="utilisateurs">Liste des utilisateurs</option>
+                </select>
+            </div>
+            <div class="right-section">
+                <button class="btn pdf">Générer format PDF</button>
+                <button class="btn excel">Générer format Excel</button>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+	
+	<script src="code.js"></script>
+    {% endblock body %}
+	
+	
+	
+	
+

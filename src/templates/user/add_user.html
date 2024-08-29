@@ -1,0 +1,43 @@
+    {% extends 'base.html' %}
+    
+    {% load static %}
+    
+    {% block lienCss %}
+    <link rel="stylesheet" href="{% static 'css_user/ustyle.css' %}">
+    {% endblock %}						
+
+
+    {% block body %}
+<!--Formulaire -->
+<section class="grouper">
+
+            <div class="form-container">
+                <h1>Ajouter un utilisateur</h1>
+                <p> <a href="{% url 'user:index' %}">Retour <i class="	fas fa-arrow-circle-right"></i></a></p>
+                <form action="" method="post">
+                    {% csrf_token %}
+                        <div class="form-group">
+                            <label for="Pseudo"></label>
+                            <input type="text" name="username" id="name" placeholder="Your Name"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mot de passe"></label>
+                            <input type="password" name="password" id="pass" placeholder="Password"/>
+                        </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" name="action" class="cancel-button">Annuler</button>
+                        <button type="submit" name="action" class="submit-button">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+	<script src="code.js"></script>
+    {% endblock body %}
+	
+	
+	
+
+

@@ -1,0 +1,64 @@
+  {%load static%}
+  
+    <div class="sidebar">
+        <div class="logo"></div>
+    
+        <ul class="menu">
+        <li class="active">
+    <a href="{% url 'dashboard:index' %}" >
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Menu de bord</span>
+    
+    </a>
+    
+        </li>
+    
+        <li>
+            <a href="{%url 'student:index' %}">
+                <i class="fas fa-user"></i>
+                <span>Eleves</span>
+            
+    </a>
+            
+    </li>
+        <li>
+            <a href="{%url 'teacher:index' %}">
+            <i class="fas fa-chart-bar"></i>
+            <span>Professeur</span>
+                    
+            </a>
+                    
+    </li>
+    
+        <li>
+            <a href="{%url 'user:index' %}">
+            <i class="fas fa-briefcase"></i>
+            <span>Utilisateurs</span>
+                            
+            </a>
+                            
+    </li>
+        <li>
+             <a href="{%url 'report:report' %}">
+            <i class="fas fa-question-circle"></i>
+             <span>Rapport</span>
+                                    
+            </a>
+                                    
+    </li>
+            
+    
+    <li class="logout">
+        <a href="{%url 'dashboard:connect' %}">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Deconnexion</span>
+                                                        
+    </a>
+                                                        
+    </li>                           
+                                                
+        </ul>
+       </div> 
+    
+       <div class="main--content">
+        
